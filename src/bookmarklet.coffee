@@ -1,21 +1,12 @@
-# Make sure jQuery is loaded.
-# Should check that it isn't already
-jQ = document.createElement 'script'
-jQ.type = 'text/javascript'
-jQ.onload = runthis
-jQ.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'
-document.body.appendChild jQ
-
-runthis = () -> 
- console.log "Opening iFrame"
- if $("#bibframe").length is 0 
+openFrame = (isbn) ->
+ if $("#bibframe").length == 0 
   $("body").append """
    <div id="bibframe">
     <div id="bibframe_veil" style="">
      <p>Loading...</p>
     </div>
-    <iframe src="http://en.wikipedia.org/w/index.php?&search=megusta" 
-            onload="$('bibframe iframe').slideDown(500);">
+    <iframe src="http://bibliotek.dk/vis.php?origin=kommando&term1=is%3D#{isbn}&target[]=dfa" 
+            onload="$('#bibframe iframe').slideDown(500);">
      Enable iFrames.
     </iframe>
     <style type="text/css">
@@ -35,14 +26,28 @@ runthis = () ->
                        margin: -5px 0 0 -5px; }
     </style>
    </div>"""
-  $("bibframe_veil").fadeIn 750
+  $("#bibframe_veil").fadeIn 750
+  
+  $("#bibframe_veil").click (event) ->
+   $("#bibframe_veil").fadeOut 750
+   $("#bibframe iframe").slideUp 500
+   setTimeout("$('#bibframe').remove()", 750)
  else
-  $("bibframe_veil").fadeOut 750 
-  $("bibframe iframe").slideUp 500
-  setTimeout("$('bibframe').remove()", 750)
+  $("#bibframe_veil").fadeOut 750 
+  $("#bibframe iframe").slideUp 500
+  setTimeout("$('#bibframe').remove()", 750)
 
- $("bibframe veil").click (event) ->
-  $("bibframe_veil").fadeOut 750
-  $("bibframe iframe").slideUp 500
-  setTimeout("$('bibframe').remove()", 750)
- 
+
+runthis = () -> 
+ s = prompt "Foobar?" 
+ openFrame s
+
+if typeof jQuery is 'undefined'
+ jQ = document.createElement 'script'
+ jQ.type = 'text/javascript'
+ jQ.onload = runthis
+ jQ.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'
+ document.body.appendChild jQ
+else
+ runthis()
+

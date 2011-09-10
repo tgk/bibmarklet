@@ -2,7 +2,7 @@ if (typeof jQuery == 'undefined') {
 	// http://www.hunlock.com/blogs/Howto_Dynamically_Insert_Javascript_And_CSS
 	var jQ = document.createElement('script');
 	jQ.type = 'text/javascript';
-	jQ.onload=runthis;
+	jQ.onload = runthis;
 	jQ.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
 	document.body.appendChild(jQ);
 } else {
