@@ -13,7 +13,15 @@
 <h1>Running the script</h1>
 
 <ul>
-<li><a href="javascript:openFrame('http://trifork.com');">Open example frame</a></li>
+<li><a href="javascript:openFrame('http://jashkenas.github.com/coffee-script/');">Open example frame</a></li>
+<li><a href="javascript:console.log(extractNumbersFromString('123-45-6-x-X'));">Extract numbers from string 123-45-6-x-X</a></li>
+<li><a href="javascript:console.log(correctChecksumForLength10(extractNumbersFromString('1234567890')));">Checksum for length 10 ISBN: 1234567890</a></li>
+<li><a href="javascript:console.log(correctChecksumForLength10(extractNumbersFromString('0330258648')));">Checksum for length 10 ISBN: 0330258648</a></li>
+<li><a href="javascript:console.log(correctChecksumForLength13(extractNumbersFromString('9781934356333')));">Checksum for length 13 ISBN: 97881934356333</a></li>
+<li><a href="javascript:console.log(correctChecksumForLength13(extractNumbersFromString('1234567890124')));">Checksum for length 13 ISBN: 1234567890124</a></li>
+<li><a href="javascript:console.log(correctChecksum('1234567890'));">Checksum for 1234567890</a></li>
+<li><a href="javascript:console.log(correctChecksum('123456789012'));">Checksum for 123456789012</a></li>
+<li><a href="javascript:console.log(correctChecksum('1234567890123'));">Checksum for 1234567890123</a></li>
 <li><a href="javascript:console.log(getAllIsbns());">Get all isbns</a></li>
 <li><a href="javascript:console.log(getAllUniqueIsbns());">Get all unique isbns</a></li>
 <li><a href="javascript:console.log(libraryUrl(['978-0596006624','978-0205309023']));">Get library url</a></li>
@@ -25,6 +33,7 @@
 <ul>
 <li>An excellent introduction 978-1-93435-633-3</li>
 <li>Travelling guide 9780330258647 or 0-330-25864-8</li>
+<li>An ISBN with a wrong checksum is 1234567890</li>
 </ul>
 
 <h1>Bookmarklet</h1>
