@@ -1,20 +1,35 @@
-<div>
+<html>
 
-<a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://localhost:8000/bookmarklet.js';})();">Bookmarklet</a>
+<head>
+<title>ISBN finder</title>
+<script type="text/javascript" src="jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="underscore-min.js"></script>
+<script type="text/javascript" src="overlay.js"></script>
+<script type="text/javascript" src="isbnfinder.js"></script>
+</head>
 
-<a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://localhost:8000/wiki.js';})();">Wikilet</a>
+<body>
 
-<a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://localhost:8000/bibmarklet.js';})();">Bibmarklet</a>
+<h1>Running the script</h1>
 
-</div>
-
-<div>
+<ul>
+<li><a href="javascript:openFrame('http://trifork.com');">Open example frame</a></li>
+<li><a href="javascript:console.log(getAllIsbns());">Get all isbns</a></li>
+<li><a href="javascript:console.log(getAllUniqueIsbns());">Get all unique isbns</a></li>
+<li><a href="javascript:console.log(libraryUrl(['978-0596006624','978-0205309023']));">Get library url</a></li>
+<li><a href="javascript:searchAndOpenFrame();">Search and open frame</a></li>
+</ul>
 
 <h1>Example isbn numbers</h1>
 
 <ul>
-<li>Clojure 9781934356333</li>
-<li>Guide 0739410121</li>
+<li>An excellent introduction 978-1-93435-633-3</li>
+<li>Travelling guide 9780330258647</li>
 </ul>
 
-</div>
+<h1>Bookmarklet</h1>
+
+<a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://localhost:8000/all_bookmarklet.js';})();">Bookmarklet</a>
+
+</body>
+</html>

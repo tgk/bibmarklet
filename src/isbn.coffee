@@ -34,6 +34,12 @@ example_content = """
   <div>DIV with isbn: 0321349601 and 1321349601</div>
   <span>SPAN with 1234567890</span>
   <p>P <button>Button with isbn: 1111111111</button></p>
+  <div>
+  <ul>
+   <li>li with 1234567899</li>
+  </ul>
+  </div>
+
 </body>
 </html>
 """
