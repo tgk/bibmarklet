@@ -1,77 +1,47 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset='utf-8'>
-
-  <title>tgk/bibmarklet @ GitHub</title>
-
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #7024eb;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #8fdb14; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #8fdb14; }
-    h3 { text-align: center; color: #8fdb14; }
-    a { color: #8fdb14; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+<title>ISBN finder</title>
+<script type="text/javascript" src="jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="underscore-min.js"></script>
+<script type="text/javascript" src="overlay.js"></script>
+<script type="text/javascript" src="isbnfinder.js"></script>
 </head>
 
 <body>
-  <a href="http://github.com/tgk/bibmarklet"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+<h1>Running the script</h1>
 
-    <div class="download">
-      <a href="http://github.com/tgk/bibmarklet/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/tgk/bibmarklet/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
+<ul>
+<li><a href="javascript:openFrame('http://jashkenas.github.com/coffee-script/');">Open example frame</a></li>
+<li><a href="javascript:console.log(extractNumbersFromString('123-45-6-x-X'));">Extract numbers from string 123-45-6-x-X</a></li>
+<li><a href="javascript:console.log(correctChecksumForLength10(extractNumbersFromString('1234567890')));">Checksum for length 10 ISBN: 1234567890</a></li>
+<li><a href="javascript:console.log(correctChecksumForLength10(extractNumbersFromString('0330258648')));">Checksum for length 10 ISBN: 0330258648</a></li>
+<li><a href="javascript:console.log(correctChecksumForLength13(extractNumbersFromString('9781934356333')));">Checksum for length 13 ISBN: 97881934356333</a></li>
+<li><a href="javascript:console.log(correctChecksumForLength13(extractNumbersFromString('1234567890124')));">Checksum for length 13 ISBN: 1234567890124</a></li>
+<li><a href="javascript:console.log(correctChecksum('1234567890'));">Checksum for 1234567890</a></li>
+<li><a href="javascript:console.log(correctChecksum('123456789012'));">Checksum for 123456789012</a></li>
+<li><a href="javascript:console.log(correctChecksum('1234567890123'));">Checksum for 1234567890123</a></li>
+<li><a href="javascript:console.log(getAllIsbns());">Get all isbns</a></li>
+<li><a href="javascript:console.log(getAllUniqueIsbns());">Get all unique isbns</a></li>
+<li><a href="javascript:console.log(libraryUrl(['978-0596006624','978-0205309023']));">Get library url</a></li>
+<li><a href="javascript:searchAndOpenFrame();">Search and open frame</a></li>
+</ul>
 
-    <h1><a href="http://github.com/tgk/bibmarklet">bibmarklet</a>
-      <span class="small">by <a href="http://github.com/tgk">tgk</a></span></h1>
+<h1>Example isbn numbers</h1>
 
-    <div class="description">
-      Bookmarklet for finding books on bibliotek.dk
-    </div>
+<ul>
+<li>An excellent introduction 978-1-93435-633-3</li>
+<li>Travelling guide 9780330258647 or 0-330-25864-8</li>
+<li>An ISBN with a wrong checksum is 1234567890</li>
+</ul>
 
-    <h2>Authors</h2>
-<p>tgk (tgk@cs.au.dk)<br/><br/>      </p>
-<h2>Contact</h2>
-<p> (tgk@cs.au.dk)<br/>      </p>
+<h1>Bookmarklet</h1>
 
+<ul>
+<li><a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://localhost:8000/all_bookmarklet.js';})();">Bookmarklet on localhost</a></li>
+<li><a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://tgk.github.com/bibmarklet/all_bookmarklet_github.js';})();">Bookmarklet on github</a></li>
+</ul>
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/tgk/bibmarklet/zipball/master">zip</a> or
-      <a href="http://github.com/tgk/bibmarklet/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/tgk/bibmarklet</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/tgk/bibmarklet">tgk/bibmarklet</a>
-    </div>
-
-  </div>
-
-  
 </body>
 </html>
